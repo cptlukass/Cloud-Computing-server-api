@@ -9,4 +9,6 @@ RUN pip install -r requirements.txt
 
 COPY . /application
 
+EXPOSE 8001
+
 CMD ["python", "./main.py"]
