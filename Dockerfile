@@ -1,15 +1,12 @@
-FROM python:3.6-slim
+FROM ubuntu:18.04
 
-RUN mkdir /application
+RUN apt-get update -y && \
+    apt-get install -y python-pip python-dev
 WORKDIR /application
 
-COPY requirements.txt .
+COPY ./requirements.txt /application/requirements.txt
 RUN pip install -r requirements.txt
 
-COPY . .
+COPY . /application
 
-ENV PYTHONUNBUFFERED 1
-
-EXPOSE 8000
-
-CMD ["main.py"]
+CMD ["python", "./main.py"]
