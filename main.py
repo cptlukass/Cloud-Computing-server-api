@@ -33,4 +33,4 @@ class Data(Resource):
 api.add_resource(Data, '/<city_name>')
 
 if __name__ == "__main__":
-    app.run()
+    app.run(port=8001)
